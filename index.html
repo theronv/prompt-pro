@@ -664,13 +664,35 @@ ${post}
    - Consistent border-radius across all cards and inputs
    - One shadow style used everywhere
 
-DONE WHEN: App runs in browser with all routes navigable · No TypeScript errors · localStorage read/write working · Design system applied consistently · List every decision made`
+DONE WHEN: App runs in browser with all routes navigable · No TypeScript errors · localStorage read/write working · Design system applied consistently · List every decision made
+
+═══════════════════════════════════════
+SAVE YOUR WORK — WRITE /PLAN.md
+═══════════════════════════════════════
+Before finishing, write a file called /PLAN.md in the project root.
+This file is your memory across Lovable sessions. Every subsequent prompt will read it first.
+
+/PLAN.md must contain:
+1. App name, problem, differentiator (one sentence each)
+2. Every decision made during this scaffold (colors, fonts, spacing, border-radius, shadow)
+3. Full folder structure with one-line purpose per directory
+4. Every TypeScript interface defined in /src/types/index.ts (paste verbatim)
+5. Every localStorage key name and its data shape
+6. Every route: path, component name, purpose
+7. Every Zustand store: name, state shape, actions
+8. Design system: exact Tailwind color tokens used, typography scale, spacing rhythm
+9. What is complete vs what is stubbed
+10. Open questions or decisions deferred to later prompts`
       },
       {
         id:'p2', step:'Prompt 2 of 6', title:'Core Features Implementation',
         isConvert: false,
-        hint:'Build all V1 features fully in Lovable — real logic, real data, no placeholders.',
-        text:`You are continuing development of ${a.name} in Lovable. The scaffold is in place. Now implement all V1 features completely — no stubs, no "TODO", no placeholder data.
+        hint:'Read PLAN.md first. Build all V1 features fully — real logic, real data, no placeholders.',
+        text:`You are continuing development of ${a.name} in Lovable.
+
+FIRST: Read /PLAN.md in the project root. This is your memory from the previous session — it contains every decision already made, the data models, folder structure, and design system. Do not re-derive anything that is already documented there. Do not contradict decisions in PLAN.md without a good reason.
+
+The scaffold is in place. Now implement all V1 features completely — no stubs, no "TODO", no placeholder data.
 
 ═══════════════════════════════════════
 APP CONTEXT
@@ -705,13 +727,19 @@ COMPONENT RULES (for clean React Native conversion later):
 - Zero web-only APIs: no window.xxx, no document.xxx, no CSS :hover in inline styles
 - All click handlers named onPress (not onClick) to mirror React Native convention
 
-DONE WHEN: All V1 features fully working · Data persists across page refresh · All edge cases handled · No TypeScript errors · No console errors`
+DONE WHEN: All V1 features fully working · Data persists across page refresh · All edge cases handled · No TypeScript errors · No console errors
+
+UPDATE /PLAN.md: Add a "Features Built" section listing every feature completed, every component created, every hook extracted, and any new decisions made. Do not overwrite existing sections — append only.`
       },
       {
         id:'p3', step:'Prompt 3 of 6', title:'UX Polish & Interactions',
         isConvert: false,
-        hint:'Walk every flow as a first-time user. Kill friction before the visual pass.',
-        text:`You are a senior UX engineer refining ${a.name} in Lovable. Walk through every user flow as if you have never seen this app. Fix every place that creates friction, confusion, or dead ends.
+        hint:'Read PLAN.md first. Walk every flow as a first-time user. Kill friction before the visual pass.',
+        text:`You are a senior UX engineer refining ${a.name} in Lovable.
+
+FIRST: Read /PLAN.md. Use it to understand what has been built, what decisions were made, and what is still pending. Do not re-do work already marked complete.
+
+Walk through every user flow as if you have never seen this app. Fix every place that creates friction, confusion, or dead ends.
 
 ═══════════════════════════════════════
 APP CONTEXT
@@ -757,13 +785,17 @@ EDGE CASES:
 - Interrupted flows: user navigates away mid-form — state preserved in Zustand, restored on return
 - Paste from clipboard: long pasted content handled gracefully (truncate or scroll)
 
-DONE WHEN: Every flow walked end-to-end · Autosave and undo working · Keyboard shortcuts all functional · Offline state handled · No dead-end screens`
+DONE WHEN: Every flow walked end-to-end · Autosave and undo working · Keyboard shortcuts all functional · Offline state handled · No dead-end screens
+
+UPDATE /PLAN.md: Add a "UX Changes" section — every friction point fixed, every interaction added, every edge case handled. Append only, do not overwrite.`
       },
       {
         id:'p4', step:'Prompt 4 of 6', title:'Visual Design & Polish',
         isConvert: false,
-        hint:'Make it feel like one person designed every pixel. This pass makes the screenshots.',
-        text:`You are a senior product designer refining ${a.name} in Lovable. This pass makes the app look like it was designed by one person who cared deeply about every detail. This is what App Store screenshots will be taken from.
+        hint:'Read PLAN.md first. Make it feel like one person designed every pixel. This pass makes the screenshots.',
+        text:`You are a senior product designer refining ${a.name} in Lovable.
+
+FIRST: Read /PLAN.md. Use the design system section (colors, typography, spacing, border-radius, shadow) as your constraints — do not invent a new system, refine the one that exists. This pass makes the app look like it was designed by one person who cared deeply about every detail. This is what App Store screenshots will be taken from.
 
 ═══════════════════════════════════════
 APP CONTEXT
@@ -803,13 +835,17 @@ Every list and data view has an intentional empty state:
 - One-sentence explanation
 - CTA button
 
-DONE WHEN: App looks polished enough for App Store screenshots · Dark mode working · Motion system consistent · All empty states designed · No visual inconsistencies`
+DONE WHEN: App looks polished enough for App Store screenshots · Dark mode working · Motion system consistent · All empty states designed · No visual inconsistencies
+
+UPDATE /PLAN.md: Add a "Visual Polish" section — final hex values used, any design system changes made, dark mode token decisions. Append only.`
       },
       {
         id:'p5', step:'Prompt 5 of 6', title:'Accessibility, Performance & Export',
         isConvert: false,
-        hint:'Make it solid before handoff to Claude Code. A11y, perf, and the export/backup feature.',
-        text:`You are a senior engineer doing a pre-handoff quality pass on ${a.name} in Lovable. This app will be migrated to React Native next, so this pass also ensures the codebase is clean and migration-ready.
+        hint:'Read PLAN.md first. Make it solid before handoff to Claude Code. A11y, perf, and the export/backup feature.',
+        text:`You are a senior engineer doing a pre-handoff quality pass on ${a.name} in Lovable.
+
+FIRST: Read /PLAN.md. Check the "What is complete vs stubbed" and any open questions sections. This pass closes everything open and ensures the codebase is migration-ready. This app will be migrated to React Native next.
 
 ═══════════════════════════════════════
 ACCESSIBILITY
@@ -852,13 +888,17 @@ Audit the entire codebase for migration blockers. Fix all of these:
 - All data access going through storage.ts (no raw localStorage calls anywhere)
 - All types exported from /src/types/index.ts
 
-DONE WHEN: Accessibility audit passing · Performance optimized · Export feature complete · Zero migration blockers · List every change made`
+DONE WHEN: Accessibility audit passing · Performance optimized · Export feature complete · Zero migration blockers · List every change made
+
+UPDATE /PLAN.md: Mark all previously stubbed items as complete or note if still pending. Add a "Migration Blockers Resolved" section listing every fix made. Append only.`
       },
       {
         id:'p6', step:'Prompt 6 of 6', title:'Final Review & Handoff Docs',
         isConvert: false,
-        hint:'Product expert review + generates handoff doc for the Claude Code migration.',
+        hint:'Read PLAN.md first. Product expert review + generates handoff doc for the Claude Code migration.',
         text:`You are a senior product strategist and engineer doing a final review of ${a.name} before it is handed off for React Native conversion and App Store submission. You have two jobs: product review and handoff documentation.
+
+FIRST: Read /PLAN.md. The HANDOFF.md you write should be consistent with and extend PLAN.md — not contradict it. Pull the data models, design tokens, and component list from PLAN.md directly rather than re-deriving them.
 
 ═══════════════════════════════════════
 APP CONTEXT
@@ -907,7 +947,9 @@ Write a complete handoff document that will be given to Claude Code for the Reac
 10. Migration notes: anything that will need special attention in the RN conversion
 11. Design decisions: color palette (hex values), typography scale, spacing system, border-radius
 
-DONE WHEN: Product review complete with clear verdict · HANDOFF.md written and saved · App is ready for React Native migration`
+DONE WHEN: Product review complete with clear verdict · HANDOFF.md written and saved · App is ready for React Native migration
+
+Note: HANDOFF.md is the final authoritative doc. It supersedes PLAN.md and is what Claude Code will receive.`
       },
     ];
   }
@@ -974,13 +1016,22 @@ Given everything above, list the top 10 things to fix in priority order. Label e
 SECTION 9 — VERDICT
 One honest paragraph: is this app close to V1-ready, halfway there, or needs significant work? What is the single most important thing standing between this and a clean Claude Code handoff?
 
-DO NOT CHANGE ANY CODE. Output the audit report only.`
+DO NOT CHANGE ANY CODE. Output the audit report only.
+
+═══════════════════════════════════════
+SAVE YOUR WORK — WRITE /AUDIT.md
+═══════════════════════════════════════
+When your audit report is complete, save the ENTIRE report as /AUDIT.md in the project root. Do not summarise — write every section in full. This file is your memory across Lovable sessions. Every subsequent prompt will read it before making any changes.`
       },
       {
         id:'p2', step:'Prompt 2 of 6', title:'Fix — Missing Features & Broken Logic',
         isConvert: false,
-        hint:'Reference the Prompt 1 audit. Fix all BLOCKER and HIGH priority feature gaps first.',
-        text:`You are a senior React engineer fixing ${a.name} in Lovable. You have just completed an audit (Prompt 1). Now fix all missing features and broken logic. Reference the audit findings — do not re-audit.
+        hint:'Read AUDIT.md first. Reference audit findings — fix all BLOCKER and HIGH priority feature gaps.',
+        text:`You are a senior React engineer fixing ${a.name} in Lovable.
+
+FIRST: Read /AUDIT.md in the project root. This is the complete audit from the previous session. Work through it section by section. Do not re-audit — fix what it found. Reference it by section name when making each change (e.g. "Fixing SECTION 3 Bug #2 — ...").
+
+You have just completed an audit. Now fix all missing features and broken logic.
 
 ═══════════════════════════════════════
 V1 FEATURES — MAKE EVERY ONE COMPLETE:
@@ -1013,13 +1064,19 @@ CODE STANDARDS (critical for React Native conversion later):
 - Zero web-only APIs: no window.xxx, no document.xxx
 - All click handlers named onPress (not onClick) to mirror React Native
 
-DONE WHEN: Every V1 feature complete · Every audit bug fixed · All edge cases handled · No TypeScript errors · No console errors`
+DONE WHEN: Every V1 feature complete · Every audit bug fixed · All edge cases handled · No TypeScript errors · No console errors
+
+UPDATE /AUDIT.md: Append a "## P2 — Features Fixed" section. For each item from Sections 2 and 3 of the audit: mark ✓ resolved or ⚠ partially resolved (explain why). Note any new issues discovered. Append only — do not modify the original audit.`
       },
       {
         id:'p3', step:'Prompt 3 of 6', title:'Fix — UX, Interactions & Data Integrity',
         isConvert: false,
-        hint:'Kill all friction. Every flow should feel obvious to a first-time user.',
-        text:`You are a senior UX engineer fixing ${a.name} in Lovable. Features are now complete. Fix every friction point identified in the audit and make interactions feel polished and reliable.
+        hint:'Read AUDIT.md first. Kill all friction. Every flow should feel obvious to a first-time user.',
+        text:`You are a senior UX engineer fixing ${a.name} in Lovable.
+
+FIRST: Read /AUDIT.md. Work through Sections 4 (UX Friction Points) and 7 (Migration Blockers) specifically. Every item listed there must be resolved in this pass. Reference each by section and item number as you fix it.
+
+Features are now complete. Fix every friction point and make interactions feel polished and reliable.
 
 ═══════════════════════════════════════
 APP CONTEXT
@@ -1072,13 +1129,19 @@ MIGRATION READINESS — fix every blocker from the audit:
 - Ensure all data access goes through storage.ts (zero raw localStorage calls)
 - All types exported from /src/types/index.ts
 
-DONE WHEN: Every flow is dead-end-free · Autosave and undo working · Offline handled · All migration blockers fixed · App never crashes from storage failure`
+DONE WHEN: Every flow is dead-end-free · Autosave and undo working · Offline handled · All migration blockers fixed · App never crashes from storage failure
+
+UPDATE /AUDIT.md: Append a "## P3 — UX & Migration Fixes" section. Mark each item from Sections 4 and 7 as ✓ resolved or ⚠ partial. Note any new friction discovered. Append only.`
       },
       {
         id:'p4', step:'Prompt 4 of 6', title:'Fix — Visual Design & Consistency',
         isConvert: false,
-        hint:'Make every screen look intentional. Fix all inconsistencies from the audit.',
-        text:`You are a senior product designer fixing ${a.name} in Lovable. UX and features are solid. Now make it look like one person designed every pixel with care. Fix every visual inconsistency from the audit.
+        hint:'Read AUDIT.md first. Make every screen look intentional. Fix all visual inconsistencies from the audit.',
+        text:`You are a senior product designer fixing ${a.name} in Lovable.
+
+FIRST: Read /AUDIT.md. Work through Section 5 (Visual Inconsistencies) specifically — every item listed there must be fixed. Also check the P2 and P3 append sections to understand what has already been resolved.
+
+UX and features are solid. Now make it look like one person designed every pixel with care.
 
 ═══════════════════════════════════════
 APP CONTEXT
@@ -1120,13 +1183,19 @@ MOTION
 - Nothing exceeds 300ms
 - Toast: slides from corner, stacks, auto-dismisses with progress bar countdown
 
-DONE WHEN: App looks polished enough for App Store screenshots · No visual inconsistencies · Empty states all designed · Dark mode complete · Motion system consistent`
+DONE WHEN: App looks polished enough for App Store screenshots · No visual inconsistencies · Empty states all designed · Dark mode complete · Motion system consistent
+
+UPDATE /AUDIT.md: Append a "## P4 — Visual Fixes" section. Mark each item from Section 5 as ✓ resolved or ⚠ partial. Document the final design decisions made (colors, spacing, radius). Append only.`
       },
       {
         id:'p5', step:'Prompt 5 of 6', title:'Fix — Accessibility, Performance & Export',
         isConvert: false,
-        hint:'Final quality pass. A11y, perf, and the export feature must all be solid before handoff.',
-        text:`You are a senior engineer doing the final quality pass on ${a.name} in Lovable before Claude Code handoff. Three focus areas: accessibility, performance, and the export/backup feature.
+        hint:'Read AUDIT.md first. Final quality pass before handoff — a11y, perf, export, and code clean-up.',
+        text:`You are a senior engineer doing the final quality pass on ${a.name} in Lovable before Claude Code handoff.
+
+FIRST: Read /AUDIT.md — especially Sections 6 (Code Quality Flags) and 8 (Priority Order), plus all P2/P3/P4 append sections to see what has and hasn't been resolved yet. This pass closes everything still open.
+
+Three focus areas: accessibility, performance, and the export/backup feature.
 
 ═══════════════════════════════════════
 ACCESSIBILITY
@@ -1167,13 +1236,17 @@ FINAL CODE CLEAN-UP
 - Verify all localStorage calls go through storage.ts
 - Verify all types are in /src/types/index.ts
 
-DONE WHEN: Accessibility audit passing · Performance optimized · Export feature complete and tested · Code fully clean · Zero console errors`
+DONE WHEN: Accessibility audit passing · Performance optimized · Export feature complete and tested · Code fully clean · Zero console errors
+
+UPDATE /AUDIT.md: Append a "## P5 — Final Quality Pass" section. Mark every remaining item from Sections 6 and 8 as ✓ resolved or ⚠ still pending (with reason). Note anything that will need attention during Claude Code migration. Append only.`
       },
       {
         id:'p6', step:'Prompt 6 of 6', title:'Handoff — Final Review & Migration Doc',
         isConvert: false,
-        hint:'Product review + HANDOFF.md. This doc feeds directly into the Claude Code migration.',
-        text:`You are a senior product strategist doing the final review of ${a.name} before React Native migration. Two jobs: product verdict and handoff documentation.
+        hint:'Read AUDIT.md first. Product verdict + generates HANDOFF.md for Claude Code migration.',
+        text:`You are a senior product strategist doing the final review of ${a.name} in Lovable before React Native migration. Two jobs: product verdict and handoff documentation.
+
+FIRST: Read /AUDIT.md in full — including all the P2–P5 append sections. Your HANDOFF.md must reflect the current state of the app, not the original audit findings. Pull data models, component inventory, and design decisions from the append sections where they were documented.
 
 ═══════════════════════════════════════
 APP CONTEXT
@@ -1222,7 +1295,9 @@ Write a complete handoff document for Claude Code. It must contain:
 12. Design decisions: hex color palette, typography scale (size + weight for each level), spacing system, border-radius value, shadow style
 13. Remaining gaps: anything that was NOT completed and will need to be built during migration
 
-DONE WHEN: Product review complete with clear verdict · HANDOFF.md written and complete · App is fully ready for Claude Code React Native migration`
+DONE WHEN: Product review complete with clear verdict · HANDOFF.md written and complete · App is fully ready for Claude Code React Native migration
+
+Note: HANDOFF.md is the final authoritative document. It supersedes AUDIT.md and is what Claude Code will receive for the migration.`
       },
     ];
   }
